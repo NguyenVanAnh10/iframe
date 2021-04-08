@@ -28,6 +28,7 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <h1>Container</h1>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -39,5 +40,18 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      window.onmessage = function (e) {
+        if (e.data === "REQUEST_SHOW_LIST") {
+          let iframes = document.querySelectorAll("iframe");
+
+          iframes.forEach((elem) => {
+            if (elem.getAttribute("id") !== "render_list") return; // address your iframe separately here
+            elem?.contentWindow.postMessage("RESPONSE_SHOW_LIST_OK", "*");
+          });
+        }
+      };
+      // window.initRender(document.getElementById("root"));
+    </script>
   </body>
 </html>

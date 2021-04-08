@@ -1,0 +1,10 @@
+{
+  "include": ["src", "@types"],
+  "compilerOptions": {
+    "checkJs": false,
+    "jsx": "react",
+    "module": "es6",
+    "moduleResolution": "node",
+    "baseUrl": "src"
+  }
+}
